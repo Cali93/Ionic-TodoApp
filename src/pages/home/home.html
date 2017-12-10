@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      TO DO App
+    </ion-title>
+    <ion-buttons end>
+      <button navPush="AddTaskPage" ion-button>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-list-header>
+      My tasks
+    </ion-list-header>
+    <ion-item *ngFor="let item of todoList$ | async" detail-push navPush="EditTasksPage" [navParams]="{item:item}">
+      {{item.title}}
+    </ion-item>
+  </ion-list>
+</ion-content>
